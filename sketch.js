@@ -17,8 +17,8 @@ function setup() {
 }
 
 function draw() {
-  
-  if (song.isPlaying())
+
+  if (song.isPlaying()) {
     song.stop();
   } else {
     song.play();
