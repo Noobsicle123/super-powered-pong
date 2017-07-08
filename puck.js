@@ -11,8 +11,8 @@ function Puck() {
                 this.diff = this.y - (p.y - p.h / 2);
                 this.rad = radians(45);
                 this.angle = map(this.diff, 0, p.h, -this.rad, this.rad);
-                this.xspeed = 5 * cos(this.angle);
-                this.yspeed = 5 * sin(this.angle);
+                this.xspeed = (width/120) * cos(this.angle);
+                this.yspeed = (width/120) * sin(this.angle);
                 this.x = p.x + p.w / 2 + this.r;
             }
         }
@@ -23,8 +23,8 @@ function Puck() {
             if (this.x < p.x) {
                 this.diff = this.y - (p.y - p.h / 2);
                 this.angle = map(this.diff, 0, p.h, radians(225), radians(135));
-                this.xspeed = 5 * cos(this.angle);
-                this.yspeed = 5 * sin(this.angle);
+                this.xspeed = (width/120) * cos(this.angle);
+                this.yspeed = (width/120) * sin(this.angle);
                 this.x = p.x - p.w / 2 - this.r;
             }
         }
