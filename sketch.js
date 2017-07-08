@@ -6,6 +6,8 @@ function preload () {
 
 function setup() {
 
+  song.play();
+  
   //Creates a canvas the size of window, the -4 is to stop scroller from appearing
   createCanvas(windowWidth - 4, windowHeight - 4);
   //Creates variables for the objects, left and right are the paddles.
@@ -17,12 +19,6 @@ function setup() {
 }
 
 function draw() {
-
-  if (song.isPlaying()) {
-    song.stop();
-  } else {
-    song.play();
-  }
 
   //black background
   background(0);
