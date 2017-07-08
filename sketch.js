@@ -1,6 +1,12 @@
 var puck, left, right, paddleSpeed;
 
+function preload () {
+  BGM = loadSound('assets/BGM.wav');
+}
+
 function setup() {
+  BGM.play();
+
   //Creates a canvas the size of window, the -4 is to stop scroller from appearing
   createCanvas(windowWidth - 4, windowHeight - 4);
   //Creates variables for the objects, left and right are the paddles.
