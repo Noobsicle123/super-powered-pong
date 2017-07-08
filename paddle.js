@@ -2,7 +2,7 @@
 function Paddle(left) {
   //size of paddle is based off the size of the canvas
   this.y = height / 2;
-  this.w = width / 30;
+  this.w = width / 50;
   this.h = height / 4;
 
   this.ychange = 0;
@@ -27,9 +27,13 @@ function Paddle(left) {
 
   //creates a rectangle based off the size variables.
   this.show = function() {
-    fill(255);
     rectMode(CENTER);
-    rect(this.x, this.y, this.w, this.h);
+    noStroke();
+    fill(255, 255, 255, 65);
+    rect(this.x, this.y, width / 40, height / 3.99 + 10, 25);
+    stroke(1);
+    fill(255, 255, 255, 255);
+    rect(this.x, this.y, this.w, this.h, 25);
   }
 
 }
