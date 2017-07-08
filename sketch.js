@@ -12,8 +12,8 @@ function setup() {
   puck = new Puck();
   left = new Paddle(true);
   right = new Paddle(false);
-  //Paddle speed changes depending on the size of screen TODO: change this to height (obviously)
-  paddleSpeed = width / 60;
+  //Paddle speed changes depending on the size of screen
+  paddleSpeed = height / 80;
 }
 
 function draw() {
