@@ -36,12 +36,4 @@ function Paddle(left) {
     rect(this.x, this.y, this.w, this.h, 25);
   }
 
-  this.AI = function() {
-    if (this.y < puck.y) {
-      this.move(paddleSpeed)
-    } else if (this.y > puck.y) {
-      this.move(-paddleSpeed)
-    }
-  }
-
 }
