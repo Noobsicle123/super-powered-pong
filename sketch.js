@@ -3,11 +3,8 @@ var puck, left, right, paddleSpeed;
 function preload () {
   song = loadSound('assets/BGM.wav');
 }
-
 function setup() {
-
-  song.play();
-  loop();
+  song.loop();
 
   //Creates a canvas the size of window, the -4 is to stop scroller from appearing
   createCanvas(windowWidth - 4, windowHeight - 4);
