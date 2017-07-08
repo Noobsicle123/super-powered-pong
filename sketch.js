@@ -1,9 +1,6 @@
 var puck, left, right, paddleSpeed;
 
 function preload () {
-  background(0);
-  textSize(64);
-  text("Loading...", width/2, height/2)
   song = loadSound('assets/BGM.wav');
 }
 function setup() {
