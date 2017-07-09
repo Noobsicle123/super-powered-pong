@@ -1,4 +1,8 @@
 var puck, left, right, paddleSpeed, onePlayer, gui;
+p5.disableFriendlyErrors = true;
+onePlayer = true
+reset = false
+
 
 function preload () {
   song = loadSound('assets/BGM.wav');
@@ -6,12 +10,14 @@ function preload () {
   pointScore = loadSound('assets/pointScore.wav')
   font = loadFont("assets/OpenSans.ttf");
 }
-function setup() {
+function setup() {  
+  frameRate(60);
   song.setVolume(0.5);
   song.loop();
+  paddleSpeed = height / 100;
 
   //Creates a canvas the size of window, the -4 is to stop scroller from appearing
-  createCanvas(windowWidth - 4, windowHeight - 4);
+  createCanvas(windowWidth, windowHeight);
 
   //Creates variables for the objects, left and right are the paddles.
   puck = new Puck();
@@ -19,9 +25,6 @@ function setup() {
   right = new Paddle(false);
 
   //Paddle speed changes depending on the size of screen
-  paddleSpeed = height / 140;
-  onePlayer = true
-  reset = false
 
   sliderRange(0,100, 1);
   gui = createGui('Settings');
@@ -106,3 +109,9 @@ function keyReleased() {
   right.move(0);
 }
 
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  puck = new Puck();
+  left = new Paddle(true);
+  right = new Paddle(false);
+}
