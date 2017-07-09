@@ -14,7 +14,7 @@ function setup() {
   frameRate(60);
   song.setVolume(0.5);
   song.loop();
-  paddleSpeed = height / 100;
+  paddleSpeed = height / 20;
 
   //Creates a canvas the size of window, the -4 is to stop scroller from appearing
   createCanvas(windowWidth, windowHeight);
