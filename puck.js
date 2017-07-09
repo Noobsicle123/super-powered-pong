@@ -1,9 +1,11 @@
 function Puck() {
+
     //Puck starts in the centre of the screen
     this.x = width / 2;
     this.y = height / 2;
+
     //puck size depends on the width of screen TODO: create a way of it being dynamic to both height and width
-    this.r = width / 50;
+    this.r = width / 80;
     this.rightscore = 0;
     this.leftscore = 0;
 
@@ -14,8 +16,8 @@ function Puck() {
                 this.diff = this.y - (p.y - p.h / 2);
                 this.rad = radians(45);
                 this.angle = map(this.diff, 0, p.h, -this.rad, this.rad);
-                this.xspeed = (width/120) * cos(this.angle);
-                this.yspeed = (width/120) * sin(this.angle);
+                this.xspeed = (width/100) * cos(this.angle);
+                this.yspeed = (width/100) * sin(this.angle);
                 this.x = p.x + p.w / 2 + this.r;
             }
         }
@@ -28,8 +30,8 @@ function Puck() {
                 this.diff = this.y - (p.y - p.h / 2);
                 this.angle = map(this.diff, 0, p.h, radians(225), radians(135));
                 //dynamically changes the speed based off width
-                this.xspeed = (width/120) * cos(this.angle);
-                this.yspeed = (width/120) * sin(this.angle);
+                this.xspeed = (width/100) * cos(this.angle);
+                this.yspeed = (width/100) * sin(this.angle);
                 this.x = p.x - p.w / 2 - this.r;
             }
         }
@@ -63,9 +65,10 @@ function Puck() {
         this.x = width / 2;
         this.y = height / 2;
         this.angle = random(-PI / 4, PI / 4);
+
         //dynamically changes the speed based off width, 
-        this.xspeed = (width/120) * cos(this.angle);
-        this.yspeed = (width/120) * sin(this.angle);
+        this.xspeed = (width/100) * cos(this.angle);
+        this.yspeed = (width/100) * sin(this.angle);
 
         if (random(1) < 0.5) {
             this.xspeed *= -1;
