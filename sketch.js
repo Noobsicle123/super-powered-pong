@@ -20,7 +20,7 @@ function setup() {
   right = new Paddle(false);
 
   //Paddle speed changes depending on the size of screen
-  paddleSpeed = height / 100;
+  paddleSpeed = height / 140;
 }
 
 function draw() {
@@ -51,23 +51,29 @@ function draw() {
   text(puck.rightscore, width-110, 80);
 
   //checks for input then moves the paddle accordingly. a/z move left paddle, j/m move right paddle.
-  if (keyIsDown(65)) {
-    left.move(-paddleSpeed);
-  } else if (keyIsDown(90)) {
-    left.move(paddleSpeed);
+  if (!left.ai) {
+    if (keyIsDown(65)) {
+      left.move(-paddleSpeed);
+    } else if (keyIsDown(90)) {
+      left.move(paddleSpeed);
+    }
   }
-
-  if (keyIsDown(74)) {
-    right.move(-paddleSpeed);
-  } else if (keyIsDown(77)) {
-    right.move(paddleSpeed);
-  }
-  
+  if (!right.ai) {
+    if (keyIsDown(74)) {
+      right.move(-paddleSpeed);
+    } else if (keyIsDown(77)) {
+      right.move(paddleSpeed);
+    }
+  }  
   left.AI();
 }
 
 function keyReleased() {
-  left.move(0);
-  right.move(0);
+  if (!left.ai) {
+    left.move(0);
+  }
+  if (!right.ai) {
+    right.move(0);
+  }
 }
 

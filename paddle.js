@@ -4,6 +4,8 @@ function Paddle(left) {
   this.y = height / 2;
   this.w = width / 50;
   this.h = height / 4;
+  this.ai = false;
+  this.difficulty = 0.0005
 
   this.ychange = 0;
 
@@ -34,10 +36,15 @@ function Paddle(left) {
     stroke(1);
     fill(255, 255, 255, 255);
     rect(this.x, this.y, this.w, this.h, 25);
-
+ 
   }
   this.AI = function(){
-    this.y = puck.y *damping
+    this.ai = true;
+    if (this.y > puck.y) {
+      this.move(-paddleSpeed);
+    } else if (this.y < puck.y) {
+        this.move(paddleSpeed)
+    }
   }
  }
  
