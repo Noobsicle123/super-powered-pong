@@ -34,6 +34,10 @@ function Paddle(left) {
     stroke(1);
     fill(255, 255, 255, 255);
     rect(this.x, this.y, this.w, this.h, 25);
-  }
 
-}
+  }
+  this.AI = function(){
+    this.y = puck.y *damping
+  }
+ }
+ 

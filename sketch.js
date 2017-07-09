@@ -7,6 +7,7 @@ function preload () {
   font = loadFont("assets/OpenSans.ttf");
 }
 function setup() {
+  damping = 0.95
   song.setVolume(0.5);
   song.loop();
 
@@ -61,6 +62,8 @@ function draw() {
   } else if (keyIsDown(77)) {
     right.move(paddleSpeed);
   }
+  
+  left.AI();
 }
 
 function keyReleased() {
