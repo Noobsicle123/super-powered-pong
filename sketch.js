@@ -85,7 +85,7 @@ function draw() {
   if (keyIsDown(71)) {
     gui.show();
   }
-  if (keyIsDown(72) || keyIsDown(87) || keyIsDown(90) || keyIsDown(38) || keyIsDown(40)) {
+  if (keyIsDown(72) || keyIsDown(87) || keyIsDown(83) || keyIsDown(38) || keyIsDown(40)) {
     gui.hide();
   }
   textSize(floor(width/50));;
