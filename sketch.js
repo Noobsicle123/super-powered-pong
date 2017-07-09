@@ -2,9 +2,12 @@ var puck, left, right, paddleSpeed;
 
 function preload () {
   song = loadSound('assets/BGM.wav');
+  paddleHit = loadSound('assets/paddleHit.wav')
+  pointScore = loadSound('assets/pointScore.wav')
   font = loadFont("assets/OpenSans.ttf");
 }
 function setup() {
+  song.setVolume(0.5);
   song.loop();
 
   //Creates a canvas the size of window, the -4 is to stop scroller from appearing
@@ -39,7 +42,7 @@ function draw() {
   puck.update();
   puck.show();
 
-  //white text, size 32, shows score for each paddle TODO: make this look waaayyy nicer
+  //white text, size 32, shows score for each paddle
   fill(255);
   textSize(48);
   textFont(font);

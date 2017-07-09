@@ -4,8 +4,8 @@ function Puck() {
     this.x = width / 2;
     this.y = height / 2;
 
-    //puck size depends on the width of screen TODO: create a way of it being dynamic to both height and width
-    this.r = width / 80;
+    //puck size depends on the width of screen
+    this.r = width / 160 + height / 100;
     this.rightscore = 0;
     this.leftscore = 0;
 
@@ -19,6 +19,8 @@ function Puck() {
                 this.xspeed = (width/100) * cos(this.angle);
                 this.yspeed = (width/100) * sin(this.angle);
                 this.x = p.x + p.w / 2 + this.r;
+                paddleHit.setVolume(0.8);
+                paddleHit.play();
             }
         }
     }
@@ -33,6 +35,8 @@ function Puck() {
                 this.xspeed = (width/100) * cos(this.angle);
                 this.yspeed = (width/100) * sin(this.angle);
                 this.x = p.x - p.w / 2 - this.r;
+                paddleHit.setVolume(0.8);
+                paddleHit.play();
             }
         }
     }
@@ -43,7 +47,7 @@ function Puck() {
         this.y += this.yspeed;
     }
 
-    //this checks if it has touched the top or bottom of the screen and if so, it will bounce off
+    //this checks if it has touched the top or bottom of the screen and if so, it will bounce off. Also checks if someone has scored.
     this.edges = function() {
         if (this.y < 0 || this.y > height) {
             this.yspeed *= -1;
@@ -52,11 +56,13 @@ function Puck() {
         if (this.x - this.r > width) {
             this.leftscore += 1;
             this.reset();
+            pointScore.play();
         }
 
         if (this.x + this.r < 0) {
             this.rightscore += 1;
             this.reset();
+            pointScore.play();
         }
     }
 
