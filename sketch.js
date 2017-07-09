@@ -77,6 +77,9 @@ function draw() {
     } else {
       left.ai = false;
     }
+  } else {
+    right.y = height/2;
+    left.y = height/2;
   }
 
   if (keyIsDown(83)) {
