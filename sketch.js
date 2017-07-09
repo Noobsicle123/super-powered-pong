@@ -1,4 +1,4 @@
-var puck, left, right, paddleSpeed;
+var puck, left, right, paddleSpeed, onePlayer;
 
 function preload () {
   song = loadSound('assets/BGM.wav');
@@ -21,6 +21,8 @@ function setup() {
 
   //Paddle speed changes depending on the size of screen
   paddleSpeed = height / 140;
+  onePlayer = true
+
 }
 
 function draw() {
@@ -64,16 +66,18 @@ function draw() {
     } else if (keyIsDown(77)) {
       right.move(paddleSpeed);
     }
-  }  
-  left.AI();
+  }
+  if (onePlayer){
+    left.AI();
+  } else {
+    left.ai = false;
+  }
 }
 
 function keyReleased() {
   if (!left.ai) {
     left.move(0);
   }
-  if (!right.ai) {
-    right.move(0);
-  }
+  right.move(0);
 }
 
