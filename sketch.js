@@ -1,4 +1,4 @@
-var puck, left, right, paddleSpeed, onePlayer;
+var puck, left, right, paddleSpeed, onePlayer, gui;
 
 function preload () {
   song = loadSound('assets/BGM.wav');
@@ -7,7 +7,6 @@ function preload () {
   font = loadFont("assets/OpenSans.ttf");
 }
 function setup() {
-  damping = 0.95
   song.setVolume(0.5);
   song.loop();
 
@@ -22,7 +21,12 @@ function setup() {
   //Paddle speed changes depending on the size of screen
   paddleSpeed = height / 140;
   onePlayer = true
+  reset = false
 
+  sliderRange(0,100, 1);
+  gui = createGui('Settings');
+  gui.addGlobals('onePlayer', 'reset');
+  gui.hide();
 }
 
 function draw() {
@@ -53,24 +57,42 @@ function draw() {
   text(puck.rightscore, width-110, 80);
 
   //checks for input then moves the paddle accordingly. a/z move left paddle, j/m move right paddle.
-  if (!left.ai) {
-    if (keyIsDown(65)) {
-      left.move(-paddleSpeed);
-    } else if (keyIsDown(90)) {
-      left.move(paddleSpeed);
+  if (!reset) {
+    if (!left.ai) {
+      if (keyIsDown(65)) {
+        left.move(-paddleSpeed);
+      } else if (keyIsDown(90)) {
+        left.move(paddleSpeed);
+      }
+    }
+    if (!right.ai) {
+      if (keyIsDown(74)) {
+        right.move(-paddleSpeed);
+      } else if (keyIsDown(77)) {
+        right.move(paddleSpeed);
+      }
+    }
+    if (onePlayer){
+      left.AI();
+    } else {
+      left.ai = false;
     }
   }
-  if (!right.ai) {
-    if (keyIsDown(74)) {
-      right.move(-paddleSpeed);
-    } else if (keyIsDown(77)) {
-      right.move(paddleSpeed);
-    }
+
+  if (keyIsDown(83)) {
+    gui.show();
   }
-  if (onePlayer){
-    left.AI();
-  } else {
-    left.ai = false;
+  if (keyIsDown(72) || keyIsDown(65) || keyIsDown(90) || keyIsDown(74) || keyIsDown(77)) {
+    gui.hide();
+  }
+  textSize(32);
+  textAlign(CENTER);
+  text('J/M for right paddle, A/Z for left paddle.', width/2, height * 0.9)
+  text('S to show GUI, H to hide GUI.', width/2, height * 0.95)
+
+  if (reset) {
+    puck.rightscore = 0
+    puck.leftscore = 0
   }
 }
 
