@@ -59,16 +59,16 @@ function draw() {
   //checks for input then moves the paddle accordingly. a/z move left paddle, j/m move right paddle.
   if (!reset) {
     if (!left.ai) {
-      if (keyIsDown(65)) {
+      if (keyIsDown(87)) {
         left.move(-paddleSpeed);
-      } else if (keyIsDown(90)) {
+      } else if (keyIsDown(83)) {
         left.move(paddleSpeed);
       }
     }
     if (!right.ai) {
-      if (keyIsDown(74)) {
+      if (keyIsDown(38)) {
         right.move(-paddleSpeed);
-      } else if (keyIsDown(77)) {
+      } else if (keyIsDown(40)) {
         right.move(paddleSpeed);
       }
     }
@@ -82,16 +82,16 @@ function draw() {
     left.y = height/2;
   }
 
-  if (keyIsDown(83)) {
+  if (keyIsDown(71)) {
     gui.show();
   }
-  if (keyIsDown(72) || keyIsDown(65) || keyIsDown(90) || keyIsDown(74) || keyIsDown(77)) {
+  if (keyIsDown(72) || keyIsDown(87) || keyIsDown(90) || keyIsDown(38) || keyIsDown(40)) {
     gui.hide();
   }
-  textSize(32);
+  textSize(floor(width/50));;
   textAlign(CENTER);
-  text('J/M for right paddle, A/Z for left paddle.', width/2, height * 0.9)
-  text('S to show GUI, H to hide GUI.', width/2, height * 0.95)
+  text('UP/DOWN for right paddle, W/S for left paddle.', width/2, height * 0.9)
+  text('G to show GUI, H to hide GUI.', width/2, height * 0.95)
 
   if (reset) {
     puck.rightscore = 0
