@@ -1,6 +1,7 @@
 "use strict";
 
-//constructor takes a boolean argument that decides whether it is the left paddle or not.
+/* Here I create a class called Paddle that creates a Paddle object with integers
+x, y, width, height, ychange and a boolean called AI. */
 function Paddle(left) {
     //size of paddle is based off the size of the canvas
     this.y = height / 2;
