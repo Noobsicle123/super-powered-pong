@@ -6,4 +6,4 @@ The vanilla game is a port of the coding train's pong in Processing (Java), link
 
 It is written with p5.js, p5.sound and p5.gui. It is being hosted on Heroku at https://super-powered-pong.herokuapp.com/.
 
-A/Z control left paddle, K/M control right paddle. Single player is default. Click S to show Menu and H to hide it, in there you can change player mode and reset.
+W/S control left paddle, UP/DOWN control right paddle. Single player is default. Click G to show Menu and H to hide it, in there you can change player mode, reset and change paddle speed.
