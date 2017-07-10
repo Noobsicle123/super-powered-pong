@@ -27,7 +27,7 @@ function Puck() {
                 }
             }
         }
-    }
+    };
 
     //Does the same as checkPaddleLeft put for the right paddle.
     this.checkPaddleRight = function (p) {
@@ -45,13 +45,13 @@ function Puck() {
                 }
             }
         }
-    }
+    };
 
     //this changes the position of the puck based on it's speed
     this.update = function () {
         this.x += this.xspeed;
         this.y += this.yspeed;
-    }
+    };
 
     //this checks if it has touched the top or bottom of the screen and if so, it will bounce off. Also checks if someone has scored.
     this.edges = function () {
@@ -74,7 +74,7 @@ function Puck() {
             this.reset();
             pointScore.play();
         }
-    }
+    };
 
     //the reset function is called when the someone has scored and resets the ball too its origin with a random direction and angle
     this.reset = function () {
@@ -89,12 +89,12 @@ function Puck() {
         if (random(1) < 0.5) {
             this.xspeed *= -1;
         }
-    }
+    };
 
     //this creates a ellipse for the puck to be displayed based off the radius (r) variable
     this.show = function () {
         fill(255);
         ellipse(this.x, this.y, this.r * 2, this.r * 2);
-    }
+    };
     this.reset();
 }

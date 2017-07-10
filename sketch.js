@@ -58,8 +58,9 @@ function draw() {
     fill(255);
     textSize(48);
     textFont(font);
+    textAlign(CENTER);
     text(puck.leftscore, 80, 80);
-    text(puck.rightscore, width - 110, 80);
+    text(puck.rightscore, width - 80, 80);
 
     //checks for input then moves the paddle accordingly. a/z move left paddle, j/m move right paddle.
     if (!reset) {
@@ -95,8 +96,8 @@ function draw() {
     }
     textSize(floor(width / 50));;
     textAlign(CENTER);
-    text("UP/DOWN for right paddle, W/S for left paddle.", width / 2, height * 0.9)
-    text("G to show GUI, H to hide GUI.", width / 2, height * 0.95)
+    text("UP/DOWN for right paddle, W/S for left paddle.", width / 2, height * 0.9);
+    text("G to show GUI, H to hide GUI.", width / 2, height * 0.95);
 
     if (reset) {
         puck.rightscore = 0;
