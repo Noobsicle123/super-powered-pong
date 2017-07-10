@@ -1,3 +1,5 @@
+"use strict";
+
 //constructor takes a boolean argument that decides whether it is the left paddle or not.
 function Paddle(left) {
   //size of paddle is based off the size of the canvas

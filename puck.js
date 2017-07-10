@@ -1,3 +1,5 @@
+"use strict";
+
 function Puck() {
 
     //Puck starts in the centre of the screen

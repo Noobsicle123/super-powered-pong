@@ -1,4 +1,5 @@
-var puck, left, right, paddleSpeed, onePlayer, gui;
+"use strict";
+var puck, left, right, paddleSpeed, onePlayer, gui, reset, song, paddleHit, pointScore, font;
 p5.disableFriendlyErrors = true;
 onePlayer = true
 reset = false
