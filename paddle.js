@@ -3,7 +3,9 @@
 /* Here I create a class called Paddle that creates a Paddle object with integers
 x, y, width, height, ychange and a boolean called AI. */
 function Paddle(left) {
-    //size of paddle is based off the size of the canvas
+
+    /* Size and positon of the paddle is based off the height and width of the
+    canvas */
     this.y = height / 2;
     this.w = width / 50;
     this.h = height / 4;
