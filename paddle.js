@@ -6,9 +6,9 @@ function Paddle(left) {
 
     /* Size and positon of the paddle is based off the height and width of the
     canvas */
-    this.y = height / 2;
     this.w = width / 50;
     this.h = height / 4;
+    this.y = height / 2;
     this.ai = false;
 
     this.ychange = 0;
@@ -34,14 +34,10 @@ function Paddle(left) {
     //creates a rectangle based off the size variables.
     this.show = function () {
         rectMode(CENTER);
-        noStroke();
-        fill(255, 255, 255, 65);
-        rect(this.x, this.y, width / 40, height / 3.99 + 10, 25);
-        stroke(1);
         fill(255, 255, 255, 255);
-        rect(this.x, this.y, this.w, this.h, 25);
-
+        rect(this.x, this.y, this.w, this.h);
     };
+
     this.AI = function () {
         this.ai = true;
         if (this.y > puck.y) {
@@ -50,4 +46,5 @@ function Paddle(left) {
             this.move(paddleSpeed);
         }
     };
+
 }

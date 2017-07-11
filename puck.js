@@ -2,13 +2,8 @@
 
 function Puck() {
 
-    //Puck starts in the centre of the screen
-    this.x = width / 2;
-    this.y = height / 2;
-
-    //puck size depends on the width of screen
     this.r = width / 160 + height / 100;
-
+    
     //Checks to see if puck is hitting left paddle, if it is, it will bounce off at an angle depending on where it hits the paddle.
     this.checkPaddleLeft = function (p) {
         if (!reset) {
@@ -92,5 +87,13 @@ function Puck() {
         fill(255);
         ellipse(this.x, this.y, this.r * 2, this.r * 2);
     };
+
+    this.windowReset = function () {
+        this.r = width / 160 + height / 100;
+        this.xspeed = (width / 100) * cos(this.angle);
+        this.yspeed = (width / 100) * sin(this.angle);
+    };
+
     this.reset();
+    this.windowReset();
 }

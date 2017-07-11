@@ -33,7 +33,7 @@ function preload() {
     song = loadSound("assets/BGM.wav");
     paddleHit = loadSound("assets/paddleHit.wav");
     pointScore = loadSound("assets/pointScore.wav");
-    font = loadFont("assets/OpenSans.ttf");
+    font = loadFont("assets/pixelFont.ttf");
     song.setVolume(0.5);
     paddleHit.setVolume(0.8);
 
@@ -77,6 +77,13 @@ function draw() {
     will bounce off. */
     puck.checkPaddleLeft(left);
     puck.checkPaddleRight(right);
+
+    /* Here it writes help text for the user that says what keys you need to
+    press */
+    textSize(floor(width / 75));;
+    textAlign(CENTER);
+    text("UP/DOWN for right paddle, W/S for left paddle.", width / 2, height * 0.9);
+    text("G to show GUI, H to hide GUI.", width / 2, height * 0.95);
 
     /* Here I display update the paddles positions then display them on the
     screen */
@@ -136,13 +143,6 @@ function draw() {
         gui.hide();
     }
 
-    /* Here it writes help text for the user that says what keys you need to
-    press */
-    textSize(floor(width / 50));;
-    textAlign(CENTER);
-    text("UP/DOWN for right paddle, W/S for left paddle.", width / 2, height * 0.9);
-    text("G to show GUI, H to hide GUI.", width / 2, height * 0.95);
-
     // When the game is reset, the scores are reset.
     if (reset) {
         rightscore = 0;
@@ -162,7 +162,7 @@ function keyReleased() {
 positions */
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
-    puck = new Puck();
+    puck.windowReset();
     left = new Paddle(true);
     right = new Paddle(false);
 }
